@@ -1,0 +1,9 @@
+<div class="content">
+    <h2>{{expenseYear}} Expenses</h2>
+    <!-- show expense list component for year-->
+    <app-expense-list 
+        [expenseList$]="expenseList$"
+        (expenseChange)="onExpensesItemChange($event)">
+    </app-expense-list>
+    <button mat-raised-button color="primary" (click)="openExpenseItemForm()">Add Expense Item</button>
+</div>

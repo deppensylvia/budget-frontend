@@ -1,0 +1,22 @@
+<div class="list-container" *ngFor="let item of expenseList$ | async; let i = index">
+  <app-expense-item [expense]="item"></app-expense-item>
+  <div class="action-buttons">
+    <span class="edit-button">
+      <button 
+        (click)="openExpenseForm(item)" 
+        mat-icon-button aria-label="icon button with a edit icon">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </span>
+    <span class="delete-button">
+      <button 
+        (click)="deleteExpense(i)" 
+        mat-icon-button aria-label="icon button with a delete icon">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </span>
+  </div>
+</div>
+<div *ngIf="(expenseList$ | async)?.length === 0">
+  <p>No expenses found for this year.</p>
+</div>

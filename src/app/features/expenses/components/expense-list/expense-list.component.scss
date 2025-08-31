@@ -1,0 +1,33 @@
+.list-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px; 
+  align-items: stretch;
+}
+
+.action-buttons, app-expense-item {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  height: 100%;
+}
+
+.edit-button,
+.delete-button {
+  background-color: rgb(253, 112, 147); // delete-button color
+  height: 100%;
+  display: flex;
+  align-items: center; // Center content vertically
+  justify-content: center; // Center content horizontally
+  border: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  
+}
+
+.edit-button {
+  background-color: rgb(118, 217, 241); // edit-button color
+  margin: 5px 0 0 0;
+}

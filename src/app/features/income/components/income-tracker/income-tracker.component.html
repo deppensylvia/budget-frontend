@@ -1,0 +1,10 @@
+<div class="content">
+    <h2>{{incomeYear}} Incomes</h2>
+    <!-- show income list component for year-->
+    <app-income-list 
+        [incomeList$]="incomeList$"
+        (incomeChange)="onIncomeItemChange($event)">
+    </app-income-list>
+    <!-- show income form component for year-->
+    <button mat-raised-button color="primary" (click)="openIncomeItemForm()">Add Income Item</button>
+</div>

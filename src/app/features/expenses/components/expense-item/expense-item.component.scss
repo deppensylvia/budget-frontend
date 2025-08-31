@@ -1,0 +1,36 @@
+.item-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: large;
+  font-weight: bold; 
+}
+
+.item-bottom{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: medium;
+  color: rgb(137, 170, 197);
+  margin: 5px;
+}
+
+.item-details {
+ margin: 0 0 2px 0 ;
+}
+
+.expense-item {
+  width: 40vw;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  padding: 10px 20px;
+}
+
+.grayed-out {
+  color: lightgray
+}
+
+.expense-notes {
+  font-size: small;
+  color: rgb(137, 170, 197);
+}

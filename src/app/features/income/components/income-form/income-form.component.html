@@ -1,0 +1,34 @@
+<form class="income-form" [formGroup]="incomeForm" (ngSubmit)="onSubmit()">
+    <h2>Income Form</h2>
+
+    <mat-form-field>
+        <mat-label>Income Name</mat-label>
+        <input matInput id="incomeName" class="form-control" formControlName="incomeName" name="name" required>
+    </mat-form-field>
+     
+    <mat-form-field>
+        <mat-label>Amount</mat-label>
+        <input matInput id="incomeAmount" class="form-control" formControlName="incomeAmount" name="amount" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Income Date</mat-label>
+        <input matInput [matDatepicker]="picker" id="incomeDate" class="form-control" formControlName="incomeDate" required>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Income Source</mat-label>
+        <input matInput id="incomeSource" class="form-control" formControlName="incomeSource" name="source" required>    
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Notes</mat-label>
+        <textarea matInput id="incomeNotes" class="form-control" formControlName="incomeNotes" name="notes"></textarea>
+    </mat-form-field>
+
+    <button  mat-flat-button type="submit" [disabled]="!incomeForm.valid" class="btn btn-primary">Submit</button>
+    <button mat-stroked-button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+</form>

@@ -1,0 +1,20 @@
+<div *ngFor="let item of incomeList$ | async; let i = index">
+  <p>Income ID: {{ item.incomeId }}, Income Name: {{ item.incomeName }}, Amount: {{ item.incomeAmount | currency:'USD':'symbol':'1.2-2' }}, Date: {{ item.incomeDate | date:'shortDate'}} , Source: {{ item. incomeSource }} 
+    <span>
+      <button 
+        (click)="openIncomesForm(item, i)" 
+        mat-icon-button aria-label="icon button with a edit icon">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </span>
+    <span>
+      <button 
+        (click)="deleteIncome(i)" 
+        mat-icon-button aria-label="icon button with a delete icon">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </span>
+  </p>
+</div>
+<div *ngIf="(incomeList$ | async)?.length === 0">
+  <p>No expenses found for this year.</p>

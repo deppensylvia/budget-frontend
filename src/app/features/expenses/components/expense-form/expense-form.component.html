@@ -1,0 +1,45 @@
+<form class="expense-form" [formGroup]="expenseForm" (ngSubmit)="onSubmit()">
+    <h2>Expense Form</h2>
+
+    <mat-form-field>
+        <mat-label>Expense Name</mat-label>
+        <input matInput id="expenseName" class="form-control" formControlName="expenseName" name="name" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Budget Category</mat-label>
+        <mat-select id="expenseCategory" formControlName="budgetCategory" required>
+            <mat-option *ngFor="let category of budgetCategories" [value]="category">{{ category }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Amount</mat-label>
+        <input matInput type="number" id="expenseAmount" class="form-control" formControlName="expenseAmount" required>
+    </mat-form-field>
+
+    <mat-label>Show in Budget?
+        <mat-checkbox id="showInBudget" class="form-check-input" formControlName="showInBudget"></mat-checkbox>
+    </mat-label>
+    
+    <mat-form-field>
+        <mat-label>Purchase Date</mat-label>
+        <input matInput [matDatepicker]="picker" id="expenseDate" class="form-control" formControlName="dateOfPurchase" required>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Purchase Location</mat-label>
+        <input matInput id="expenseLocation" class="form-control" formControlName="locationPurchased" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Notes</mat-label>
+        <textarea matInput id="expenseNotes" class="form-control" formControlName="expenseNotes"></textarea>
+    </mat-form-field>
+
+    <button mat-flat-button type="submit" [disabled]="!expenseForm.valid" class="btn btn-primary">Submit</button>
+    <button mat-stroked-button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+</form>

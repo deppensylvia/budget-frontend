@@ -1,0 +1,23 @@
+<div class="expense-item" [ngClass]="{'grayed-out': !expense.showInBudget}">   
+    <div class="item-top">
+        <div class="expense-name">{{expense.expenseName}}</div>
+        <div class="expense-amount">{{expense.expenseAmount * (-1) | currency:'USD':'symbol':'1.2-2'}}</div>
+    </div>
+    <div class="item-bottom" [ngStyle]="{'color': expense.showInBudget ? 'rgb(137, 170, 197)' : 'lightgray'}"> 
+        <div class="item-details date-of-purchase">{{expense.dateOfPurchase | date:'mediumDate'}}</div>
+        <div class="item-details budget-category">{{expense.budgetCategory}}</div>
+        <div class="item-details location-purchased">{{expense.locationPurchased}}</div>
+    </div>
+    <div class="expense-notes-section" *ngIf="expense.expenseNotes">
+        <div class="expense-notes" *ngIf="showNotes"> 
+            {{ expense.expenseNotes }}
+        </div>
+        <button type="button" mat-button (click)="toggleNotes()" class="btn btn-secondary toggle-notes-btn">
+            <mat-icon *ngIf="!showNotes">notes</mat-icon>
+            <mat-icon *ngIf="showNotes">close</mat-icon>
+            {{ showNotes ? 'Hide Notes' : 'Show Notes' }}
+        </button>
+    </div>
+</div>
+
+
